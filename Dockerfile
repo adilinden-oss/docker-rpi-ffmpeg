@@ -16,6 +16,10 @@ RUN make install
 
 FROM balenalib/raspberry-pi-debian:stretch
 
+RUN apt-get update && apt-get install -qy libraspberrypi-bin libomxil-bellagio0 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 WORKDIR /root
 COPY --from=builder /usr/local/bin/ /usr/local/bin
 COPY --from=builder /usr/local/lib/ /usr/local/lib
