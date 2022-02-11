@@ -5,7 +5,7 @@ RUN apt-get update -qy && apt-get -qy install \
         libomxil-bellagio-dev
 
 WORKDIR /root
-RUN git clone --branch=n4.1.2 --single-branch --depth=1 https://github.com/FFmpeg/FFmpeg.git 
+RUN git clone --branch=n4.1.8 --single-branch --depth=1 https://github.com/FFmpeg/FFmpeg.git 
 
 WORKDIR /root/FFmpeg
 RUN ./configure --arch=armel --target-os=linux --enable-gpl --enable-omx --enable-omx-rpi --enable-nonfree
