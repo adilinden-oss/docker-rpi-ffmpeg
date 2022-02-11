@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-debian:stretch as builder
+FROM balenalib/raspberry-pi-debian:buster as builder
 
 RUN apt-get update -qy && apt-get -qy install \
         build-essential git nasm \
@@ -14,7 +14,7 @@ RUN make install
 
 ###
 
-FROM balenalib/raspberry-pi-debian:stretch
+FROM balenalib/raspberry-pi-debian:buster
 
 RUN apt-get update && apt-get install -qy libraspberrypi-bin libomxil-bellagio0 \
     && apt-get clean \
